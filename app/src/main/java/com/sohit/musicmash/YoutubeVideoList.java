@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ThemeOptionsPage extends AppCompatActivity {
+public class YoutubeVideoList extends AppCompatActivity {
 
     protected String search_query = "";
 
@@ -27,15 +27,14 @@ public class ThemeOptionsPage extends AppCompatActivity {
         JSONObject json = null;
         try {
             HttpRequestHandler handler = new HttpRequestHandler();
-            String response = handler.execute(YouTubeVideoItem.createYoutubeUrl(search_query, 10)).get();
-            json = YouTubeVideoItem.stringToJson(response);
-            System.out.println(json); // TODO: Delete
+            String response = handler.execute(YouTubeVideoHandler.createYoutubeUrl(search_query, 10)).get();
+            json = YouTubeVideoHandler.stringToJson(response);
         } catch (Exception e) {
             Toast.makeText(this, "You Suck", Toast.LENGTH_LONG).show();
         }
 
         // Display the items in a list format on the screen
-        ArrayList<CustomItem> items = YouTubeVideoItem.parseJson(json);
+        ArrayList<CustomItem> items = YouTubeVideoHandler.parseJson(json);
 
         ListAdapter adapter = new ListAdapter(this, items, R.color.colorPrimary);
         ListView listView = (ListView) findViewById(R.id.list);

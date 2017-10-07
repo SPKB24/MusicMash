@@ -24,13 +24,17 @@
         <TextView
             android:id="@+id/main_content_view"
             android:layout_width="match_parent"
+            android:maxLines="1"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="bottom"
+            android:ellipsize="end"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="lutti" />
+            android:textSize="15sp"
+            tools:text="lutti"
+            android:width="0dip"/>
 
         <TextView
             android:id="@+id/secondary_content_view"
@@ -38,8 +42,11 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:gravity="top"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textAppearance="?android:textAppearanceSmall"
             android:textStyle="italic"
+            android:textSize="14sp"
             android:textColor="@android:color/white"
             tools:text="one" />
     </LinearLayout>

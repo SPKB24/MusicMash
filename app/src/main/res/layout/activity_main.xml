@@ -48,19 +48,19 @@
                 <Button
                     android:id="@+id/btn_study"
                     style="@style/main_activity_button_style"
-                    android:text="Study"/>
+                    android:text="Dubstep"/>
                 <Button
                     android:id="@+id/btn_workout"
                     style="@style/main_activity_button_style"
-                    android:text="Workout"/>
+                    android:text="Workout music"/>
                 <Button
                     android:id="@+id/btn_sleep"
                     style="@style/main_activity_button_style"
-                    android:text="Sleep"/>
+                    android:text="Study music"/>
                 <Button
                     android:id="@+id/btn_dubstep"
                     style="@style/main_activity_button_style"
-                    android:text="Dubstep"/>
+                    android:text="sleep music"/>
             </LinearLayout>
         </HorizontalScrollView>
 

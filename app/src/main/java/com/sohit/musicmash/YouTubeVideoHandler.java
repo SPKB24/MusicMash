@@ -4,48 +4,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 /**
  * Created by sohit on 10/7/17.
  */
 
-public class YouTubeVideoItem {
-
-    private String video_title;
-    private String video_channel;
-    private String video_id;
-    private String video_thumbnail;
-
-    public YouTubeVideoItem(final String _title, final String _channel, final String _id, final String _thumbnail) {
-        this.video_title = _title;
-        this.video_channel = _channel;
-        this.video_id = _id;
-        this.video_thumbnail = _thumbnail;
-    }
-
-    public String get_title() {
-        return video_title;
-    }
-
-    public String getVideo_channel() {
-        return video_channel;
-    }
-
-    public String get_id() {
-        return video_id;
-    }
-
-    public String get_thumbnail() {
-        return video_thumbnail;
-    }
+public class YouTubeVideoHandler {
 
     public static String createYoutubeUrl(final String query, final int numResults) {
         String first = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=";
         String second = "&q=";
         String third = "&type=video&key=";
-        return first + numResults + second + query + third + YouTubeConfig.YOUTUBE_API_KEY;
+        try {
+            String toReturn =
+                    URLDecoder.decode(first + numResults + second + query + third +
+                            YouTubeConfig.YOUTUBE_API_KEY, "UTF-8").replace(" ", "%20");
+
+            System.out.println("URL is: " + toReturn);
+
+            return toReturn;
+        } catch (Exception e) {}
+
+        return null;
     }
 
     public static JSONObject stringToJson(final String input) {

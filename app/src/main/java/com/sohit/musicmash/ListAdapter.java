@@ -1,6 +1,7 @@
 package com.sohit.musicmash;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -15,17 +16,21 @@ import android.widget.TextView;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 /**
  * Created by sohit on 10/2/17.
  */
 
 public class ListAdapter extends ArrayAdapter<CustomItem> {
 
+    private Context context;
     private int backgroundColorId = R.color.colorPrimary;
 
     public ListAdapter(Context context, ArrayList<CustomItem> items, int _backgroundColorId) {
         super(context, 0, items);
         backgroundColorId = _backgroundColorId;
+        this.context = context;
     }
 
     @Override
@@ -37,7 +42,7 @@ public class ListAdapter extends ArrayAdapter<CustomItem> {
                     R.layout.list_item, parent, false);
         }
 
-        CustomItem currentItem = getItem(position);
+        final CustomItem currentItem = getItem(position);
 
         TextView mainTextView = listItemView.findViewById(R.id.main_content_view);
         mainTextView.setText(currentItem.getVideoTitle());
@@ -52,6 +57,16 @@ public class ListAdapter extends ArrayAdapter<CustomItem> {
         View textContainer = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), backgroundColorId);
         textContainer.setBackgroundColor(color);
+
+        // Set an onclick listener to play the correct video
+        listItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, YouTubePlayVideo.class);
+                intent.putExtra("video_id", currentItem.getVideoId());
+                context.startActivity(intent);
+            }
+        });
 
         return listItemView;
     }

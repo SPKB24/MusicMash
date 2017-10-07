@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".YouTubePlayVideo" />
-        <activity android:name=".ThemeOptionsPage"></activity>
+        <activity android:name=".YoutubeVideoList"></activity>
     </application>
 
 </manifest>
