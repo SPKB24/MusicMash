@@ -56,7 +56,8 @@ public class YouTubeVideoHandler {
                         jsonGetVideoTitle(item),
                         jsonGetVideoChannel(item),
                         jsonGetVideoThumbnailUrl(item),
-                        jsonGetVideoId(item));
+                        jsonGetVideoId(item),
+                        jsonGetVideoDescription(item));
 
                 toReturn.add(customItem);
             }
@@ -96,6 +97,14 @@ public class YouTubeVideoHandler {
         try {
             return item.getJSONObject("snippet").getJSONObject("thumbnails")
                     .getJSONObject("medium").getString("url");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static String jsonGetVideoDescription(JSONObject item) {
+        try {
+            return item.getJSONObject("snippet").getString("description");
         } catch (Exception e) {
             return null;
         }

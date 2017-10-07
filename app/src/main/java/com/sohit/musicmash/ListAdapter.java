@@ -64,6 +64,9 @@ public class ListAdapter extends ArrayAdapter<CustomItem> {
             public void onClick(View view) {
                 Intent intent = new Intent(context, YouTubePlayVideo.class);
                 intent.putExtra("video_id", currentItem.getVideoId());
+                intent.putExtra("video_title", currentItem.getVideoTitle());
+                intent.putExtra("video_channel", currentItem.getVideoChannel());
+                intent.putExtra("video_description", currentItem.getVideoDescription());
                 context.startActivity(intent);
             }
         });

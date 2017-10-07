@@ -3,6 +3,7 @@ package com.sohit.musicmash;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -16,6 +17,7 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
 
+    private CustomItem videoInfo = null;
     private String video_id = "fhWaJi1Hsfo";
 
     private MyPlayerStateChangeListener playerStateChangeListener;
@@ -27,10 +29,27 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
         setContentView(R.layout.activity_you_tube_play_video);
 
         Bundle extras = getIntent().getExtras();
-        video_id = extras.getString("video_id");
 
+        // Get all required video information and store it in the object for later
+        videoInfo = new CustomItem(
+                extras.getString("video_title"),
+                extras.getString("video_channel"),
+                extras.getString("video_id"),
+                extras.getString("video_description"));
+
+        // Start loading video
         youTubeView = findViewById(R.id.youtube_view);
         youTubeView.initialize(YouTubeConfig.YOUTUBE_API_KEY, this);
+
+        // Fill int he other text views with information
+        TextView textView = findViewById(R.id.video_title);
+        textView.setText(videoInfo.getVideoTitle());
+
+        textView = findViewById(R.id.video_channel);
+        textView.setText(videoInfo.getVideoChannel());
+
+        textView = findViewById(R.id.video_description);
+        textView.setText(videoInfo.getVideoDescription());
 
         playerStateChangeListener = new MyPlayerStateChangeListener();
         playbackEventListener = new MyPlaybackEventListener();
