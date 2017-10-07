@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MusicMash</string>
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+    <string name="search_for_video">SEARCH FOR A VIDEO:</string>
+    <string name="choose_from_given">OR CHOOSE FROM A PROVIDED THEME:</string>
+    <string name="search_text">Search</string>
+</resources>
