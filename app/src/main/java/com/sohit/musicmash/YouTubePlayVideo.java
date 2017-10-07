@@ -18,7 +18,6 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
     private YouTubePlayerView youTubeView;
 
     private CustomItem videoInfo = null;
-    private String video_id = "fhWaJi1Hsfo";
 
     private MyPlayerStateChangeListener playerStateChangeListener;
     private MyPlaybackEventListener playbackEventListener;
@@ -59,7 +58,7 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
         player.setPlaybackEventListener(playbackEventListener);
 
         if (!wasRestored) {
-            player.cueVideo(video_id);
+            player.cueVideo(videoInfo.getVideoId());
         }
     }
 
