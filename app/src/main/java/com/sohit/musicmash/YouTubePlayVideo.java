@@ -16,7 +16,7 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerView youTubeView;
 
-    private String video_id = "";
+    private String video_id = "fhWaJi1Hsfo";
 
     private MyPlayerStateChangeListener playerStateChangeListener;
     private MyPlaybackEventListener playbackEventListener;
@@ -42,12 +42,7 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
         player.setPlaybackEventListener(playbackEventListener);
 
         if (!wasRestored) {
-            System.out.println("TRYING TO PLAY VIDEO_ID: " + video_id);
-            if (video_id.isEmpty()) {
-                player.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
-            } else {
-                player.cueVideo(video_id);
-            }
+            player.cueVideo(video_id);
         }
     }
 
@@ -82,19 +77,19 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
         @Override
         public void onPlaying() {
             // Called when playback starts, either due to user action or call to play().
-            showMessage("Playing");
+//            showMessage("Playing");
         }
 
         @Override
         public void onPaused() {
             // Called when playback is paused, either due to user action or call to pause().
-            showMessage("Paused");
+//            showMessage("Paused");
         }
 
         @Override
         public void onStopped() {
             // Called when playback stops for a reason other than being paused.
-            showMessage("Stopped");
+//            showMessage("Stopped");
         }
 
         @Override
