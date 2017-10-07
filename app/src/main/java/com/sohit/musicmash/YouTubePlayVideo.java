@@ -44,10 +44,8 @@ public class YouTubePlayVideo extends YouTubeBaseActivity
         // Fill int he other text views with information
         TextView textView = findViewById(R.id.video_title);
         textView.setText(videoInfo.getVideoTitle());
-
         textView = findViewById(R.id.video_channel);
         textView.setText(videoInfo.getVideoChannel());
-
         textView = findViewById(R.id.video_description);
         textView.setText(videoInfo.getVideoDescription());
 
