@@ -22,7 +22,7 @@
             style="@style/youtube_play_page_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="TITLE IS ksjdhkjhsds fkjshf kjshdf ksjdh ksjehrl kjshdlckjsher lkjhsclkjsel rkj"/>
+            android:text="Video Title"/>
 
         <TextView
             android:id="@+id/video_channel"
@@ -30,13 +30,13 @@
             android:layout_marginTop="0dp"
             android:textSize="15sp"
             android:textStyle="italic"
-            android:text="Channel is ksjdhfkjdf"/>
+            android:text="Channel Information"/>
 
         <TextView
             android:id="@+id/video_description"
             style="@style/youtube_play_page_content"
             android:textSize="12sp"
-            android:text="Descroption is ksjdhfkjdskdjfhks dfksjdhf ksjdhfksjdhfkjdsf"/>
+            android:text="Video Description"/>
     </LinearLayout>
 
 </RelativeLayout>
